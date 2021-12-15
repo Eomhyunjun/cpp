@@ -1,13 +1,13 @@
-NAME			= awesome_phonebook
+NAME			= zombie
 CC				= clang++
 FLAGS			= -Wall -Wextra -Werror
 OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					AwesomeHeom.cpp \
-					PhoneBook.cpp \
-					Contact.cpp \
+					Zombie.cpp \
+					newZombie.cpp \
+					randomChump.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
