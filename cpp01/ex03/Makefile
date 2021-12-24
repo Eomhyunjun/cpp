@@ -5,9 +5,9 @@ OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					Zombie.cpp \
-					newZombie.cpp \
-					randomChump.cpp \
+					Weapon.cpp \
+					HumanA.cpp \
+					HumanB.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

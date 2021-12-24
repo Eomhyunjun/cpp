@@ -1,13 +1,10 @@
-NAME			= zombie
+NAME			= replace
 CC				= clang++
 FLAGS			= -Wall -Wextra -Werror
 OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					Zombie.cpp \
-					newZombie.cpp \
-					randomChump.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
