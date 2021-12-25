@@ -9,7 +9,7 @@ Zombie	*zombieHorde(int n, std::string name)
 	i = 0;
 	while (i < n)
 	{
-		zombies[i].Set(name + std::to_string(i));
+		zombies[i].Set(name);
 		i++;
 	}
 	return (zombies);
