@@ -1,9 +1,5 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon()
-{
-};
-
 Weapon::Weapon(std::string const &_type) : type(_type)
 {
 };
