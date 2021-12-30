@@ -8,17 +8,18 @@ SRCS			=	main.cpp \
 					AwesomeHeom.cpp \
 					PhoneBook.cpp \
 					Contact.cpp \
+					
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) $(FLAGS) -I. -o $(NAME) $(OBJS) #2> /dev/null || true
+				$(CC) $(FLAGS) -I. -o $(NAME) $(OBJS)
 
 $(OBJDIR)/%.o:	./%.cpp
 				mkdir $(OBJDIR) 2> /dev/null || true
-				$(CC) $(FLAGS) -I$(INCDIR) -o $@ -c $< #2> /dev/null || true
+				$(CC) $(FLAGS) -I$(INCDIR) -o $@ -c $<
 clean:
 				@rm -rf $(OBJDIR)
 

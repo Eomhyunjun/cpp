@@ -17,7 +17,7 @@ void Karen::error(void) {
 };
 
 void Karen::invalid(void) {
-    std::cout << "유효하지 않은 명령어 입니다." << std::endl;
+    std::cout << "invalid command" << std::endl;
 }
 
 void Karen::complain(std::string level) {

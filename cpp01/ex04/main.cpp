@@ -13,7 +13,7 @@ void replace(std::string &f_name, std::string &s1, std::string &s2)
     f_read.open(f_name);
     if (f_read.fail())
     {
-        std::cout << "error : 파일 읽기를 실패했습니다" << std::endl;
+        std::cout << "error : read_file read fail" << std::endl;
         return ;
     }
 
@@ -21,7 +21,7 @@ void replace(std::string &f_name, std::string &s1, std::string &s2)
     f_write.open(f_out_name);
     if (f_write.fail())
     {
-        std::cout << "error : 파일 쓰기를 실패했습니다." << std::endl;
+        std::cout << "error : write_file read fail" << std::endl;
         f_read.close();
         return ;
     }
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 4)
     {
-        std::cout << "인자는 파일명, 찾을 문장, 바꿀문장 3개만 입력하셔야 합니다" << std::endl;
+        std::cout << "Enter only 3 args" << std::endl;
     }
     else
     {
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         std::string s2(argv[3]);
         if (s1.length() == 0 || s2.length() == 0)
         {
-            std::cout << "인자값은 비어있으면 안됩니다." << std::endl;
+            std::cout << "arg values should not be empty." << std::endl;
         }
         else
         {
