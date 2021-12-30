@@ -26,30 +26,23 @@ void Karen::others(void) {
 }
 
 void Karen::complain(std::string level) {
-    int idx = 5;
+    int idx = 0;
 
-    void (Karen::*func)(void);
-
-	(level.compare("DEBUG") == 0) && (idx = 0);
-	(level.compare("INFO") == 0) && (idx = 1);
-	(level.compare("WARNING") == 0) && (idx = 2);
-	(level.compare("ERROR") == 0) && (idx = 3);
+	(level.compare("DEBUG") == 0) && (idx = 1);
+	(level.compare("INFO") == 0) && (idx = 2);
+	(level.compare("WARNING") == 0) && (idx = 3);
+	(level.compare("ERROR") == 0) && (idx = 4);
     switch (idx)
     {
         case 0:
-            func = &Karen::debug;
-            break ;
+            others();
         case 1:
-            func = &Karen::info;
-            break ;
+            debug();
         case 2:
-            func = &Karen::warning;
-            break ;
+            info();
         case 3:
-            func = &Karen::error;
-            break ;
-        default:
-            func = &Karen::others;
+            warning();
+        case 4:
+            error();
     }
-    (this->*func)();
 };
