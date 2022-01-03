@@ -2,42 +2,28 @@
 #define EIGHT_BIT_SHIFT (1 << 8)
 
 // 생성자, 소멸자
-Fixed::Fixed() : fixedPointValue(0)
-{
-    // std::cout << "Default constructor called" << std::endl;
-};
+Fixed::Fixed() : fixedPointValue(0) {};
 
-Fixed::Fixed(const int value) : fixedPointValue(value << fractionalBitsNum)
-{
-    // std::cout << "Int constructor called" << std::endl;
-}
+Fixed::Fixed(const int value) : fixedPointValue(value << fractionalBitsNum) {}
 
-Fixed::Fixed(const float value) : fixedPointValue(std::roundf(value * EIGHT_BIT_SHIFT))
-{
-    // std::cout << "Float constructor called" << std::endl;
-}
+Fixed::Fixed(const float value) : fixedPointValue(std::roundf(value * EIGHT_BIT_SHIFT)) {}
 
 Fixed::Fixed(Fixed const &rhs)
 {
-    // std::cout << "Copy constructor called" << std::endl;
     *this = rhs;
 }
 
-Fixed::~Fixed()
-{
-    // std::cout << "Destructor called" << std::endl;
-};
+Fixed::~Fixed() { };
 
+
+// set,get, convert 함수
 void Fixed::setRawBits(int const raw)
 {
-    // std::cout << "setRawBits member function called" << std::endl;
     fixedPointValue = raw;
 }
 
-// set,get, convert 함수
 int Fixed::getRawBits(void) const
 {
-    // std::cout << "getRawBits member function called" << std::endl;
     return fixedPointValue;
 }
 
@@ -85,17 +71,17 @@ Fixed const &Fixed::max(Fixed const &fixed1, Fixed const &fixed2)
 }
 
 // 할당 연산자
+std::ostream &operator<<(std::ostream &ostream, Fixed const &fixed)
+{
+    ostream << fixed.toFloat();
+    return ostream;
+}
+
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
-    // std::cout << "Assignation operator called" << std::endl;
     if (this != &rhs)
         this->fixedPointValue = rhs.fixedPointValue;
     return (*this);
-}
-
-std::ostream &operator<<(std::ostream &ostream, Fixed const &fixed) {
-    ostream << fixed.toFloat();
-    return ostream;
 }
 
 //  전위연산자, 후위연산자
@@ -119,26 +105,32 @@ Fixed Fixed::operator--(int) {
 }
 // 비교연산자
 
-bool Fixed::operator==(Fixed &other) const {
+bool Fixed::operator==(Fixed &other) const
+{
     return (getRawBits() == other.getRawBits());
 }
-bool Fixed::operator!=(Fixed &other) const {
+bool Fixed::operator!=(Fixed &other) const
+{
     return (getRawBits() != other.getRawBits());
 }
-bool Fixed::operator<(Fixed &other) const {
+bool Fixed::operator<(Fixed &other) const
+{
     return (getRawBits() < other.getRawBits());
 }
-bool Fixed::operator>(Fixed &other) const {
+bool Fixed::operator>(Fixed &other) const
+{
     return (getRawBits() > other.getRawBits());
 }
-bool Fixed::operator<=(Fixed &other) const {
+bool Fixed::operator<=(Fixed &other) const
+{
     return (getRawBits() <= other.getRawBits());
 }
-bool Fixed::operator>=(Fixed &other) const {
+bool Fixed::operator>=(Fixed &other) const
+{
     return (getRawBits() >= other.getRawBits());
 }
-//  사칙연산
 
+//  사칙연산
 Fixed Fixed::operator+(Fixed const &arg) const
 {
     return (Fixed(this->toFloat() + arg.toFloat()));
