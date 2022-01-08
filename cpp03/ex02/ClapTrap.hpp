@@ -5,6 +5,7 @@
 #include <string>
 class ClapTrap
 {
+    protected:
     std::string name;
     int         Hitpoints;
     unsigned int         EnergyPoints;

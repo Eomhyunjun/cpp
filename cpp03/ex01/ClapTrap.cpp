@@ -21,7 +21,7 @@ ClapTrap::~ClapTrap()
     std::cout << "Destructor called" << std::endl;
 }
 
-void ClapTrap::Setname(std::string const _name)
+void ClapTrap::Setname(std::string const &_name)
 {
     name = _name;
 }
