@@ -24,6 +24,11 @@ int main(void)
     // Animal
     meta->makeSound();
 
+    delete meta;
+    delete j;
+    delete i;
+
+    //virtual 상속을 안해서 makeSound 둘 다 animal로 나옴
     std::cout << std::endl << "-------wrong case -------"<< std::endl;
     
     const WrongAnimal* wrongMeta = new WrongAnimal();
@@ -33,4 +38,7 @@ int main(void)
 
     wrongMeta->makeSound(); //will output the cat sound!
     wrongI->makeSound();
+
+    delete wrongMeta;
+    delete wrongI;
 }
