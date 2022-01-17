@@ -30,7 +30,7 @@ Dog& Dog::operator=(Dog const &_Dog) {
     if (this != &_Dog)
     {
         type = _Dog.getType();
-        delete attribute;
+        delete attribute; 
         attribute = new Brain(_Dog.getBrain());
     }
     return *this;

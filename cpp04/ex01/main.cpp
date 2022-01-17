@@ -29,6 +29,4 @@ int main()
     for (int i = 0; i < NUM; i++) {
         delete animal[i];
     }
-
-
 }

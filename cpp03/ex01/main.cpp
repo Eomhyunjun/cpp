@@ -17,7 +17,7 @@ int main(void)
 
     // attack 20
     a.attack("moeh");
-
+    a.guardGate();
     //takeDamge15 + dead(50이 기본 점수)
     //35left
     a.takeDamge(15);

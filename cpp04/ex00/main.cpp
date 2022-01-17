@@ -13,6 +13,9 @@ int main(void)
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
+    Animal metas = Animal("현준");
+
+
     //getType + dog or cat
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
