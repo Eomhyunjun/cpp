@@ -34,6 +34,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator = (const RobotomyRequestForm&
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     isExecutable(executor);
+    std::cout << target << " drill drill" << std::endl;
     if (time(0) % 2)
         std::cout << target << " has been robotomized successfully 50% of the time" << std::endl;
     else
