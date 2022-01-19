@@ -29,6 +29,26 @@ int main(void)
     }
 
     std::cout << "------- err case --------" << std::endl;
+    try
+    {
+        Bureaucrat err("heom", 72);
+        ShrubberyCreationForm       errcd("CD");
+        RobotomyRequestForm         errrr("RR");
+        PresidentialPardonForm      errpp("PP");
+
+        std::cout << "ALL CONSDTRUCT----------" << std::endl;
+        err.signForm(errcd);
+        err.signForm(errrr);
+        err.signForm(errpp);
+        std::cout << "ALL SIGNED---------" << std::endl;
+        err.executeForm(errcd);
+        err.executeForm(errrr);
+        err.executeForm(errpp);
+    }
+    catch(std::exception & e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
     return (0);
 }
