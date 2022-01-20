@@ -22,12 +22,10 @@ class MutantStack : public std::stack<T> {
     }
 
     const_iterator cbegin(void) const {
-        // std::cout << "const" << std::endl;
         return (this->c.cbegin());
     }
 
     const_iterator cend(void) const {
-        // std::cout << "const" << std::endl;
         return (this->c.cend());
     }
 
@@ -47,7 +45,6 @@ class MutantStack : public std::stack<T> {
         return (this->c.crend());
     }
 
-    //operator
     MutantStack& operator=(MutantStack const& other) {
         std::stack<T>::operator=(other);
     }
