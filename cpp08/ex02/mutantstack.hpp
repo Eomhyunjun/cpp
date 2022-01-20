@@ -10,6 +10,8 @@ class MutantStack : public std::stack<T> {
     typedef typename std::stack<T>::container_type::const_iterator const_iterator;
     typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
     typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+    //typedef typename -> typedef로 재정의 되었다는 뜻
+    // std::stack<T>::container_type::iterator -> iterator로 부르겠다
 
     iterator begin(void) {
         return (this->c.begin());

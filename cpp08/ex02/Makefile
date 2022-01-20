@@ -1,4 +1,4 @@
-NAME			= span
+NAME			= mut
 CC				= clang++
 FLAGS			= -Wall -Wextra -Werror -Wshadow -Wno-shadow
 OBJDIR			= ./obj
