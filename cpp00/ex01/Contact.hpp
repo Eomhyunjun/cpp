@@ -5,10 +5,11 @@
 #include <iomanip>
 #include <string>
 
-# define ELEMENT_NUM 4
+# define ELEMENT_NUM 5
 
 class Contact
 {
+    private:
     static std::string keys[ELEMENT_NUM];
     std::string vals[ELEMENT_NUM];
 
@@ -17,7 +18,8 @@ class Contact
         FIRSTNAME = 0,
 		LASTNAME,
 		NICKNAME,
-        SECRET
+        NUMBER,
+        SECRET,
     };
 
     public:

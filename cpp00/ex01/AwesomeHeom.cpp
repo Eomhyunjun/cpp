@@ -9,13 +9,17 @@ int AwesomeHeom::InputLoop(void)
     while (cmd != "EXIT")
     {
         CommandGuide();
-        std::getline(std::cin, cmd);
+        if  (!std::getline(std::cin, cmd))
+        {
+            std::cout << "\n시스템 종료" << std::endl;
+            exit(0);
+        }
         if (cmd == "ADD")
             _pb.Add();
         else if (cmd == "SEARCH")
             _pb.Search();
         else if (cmd == "EXIT")
-            std::cout << "시스템 종료" << std::endl;
+            std::cout << "\n시스템 종료" << std::endl;
         else
             std::cout << "command not found" << std::endl;
         std::cout << std::endl;

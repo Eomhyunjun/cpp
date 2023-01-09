@@ -8,6 +8,7 @@
 
 class AwesomeHeom
 {
+    private:
     PhoneBook _pb;
     std::string cmd;
 

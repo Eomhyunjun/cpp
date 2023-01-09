@@ -1,5 +1,5 @@
 NAME			= account
-CC				= clang++
+CC				= c++
 FLAGS			= -Wall -Wextra -Werror -std=c++98
 OBJDIR			= ./obj
 INCDIR			= ./
@@ -13,11 +13,12 @@ OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) $(FLAGS) -I. -o $(NAME) $(OBJS)
+				$(CC) $(FLAGS) -I$(INCDIR) -o $(NAME) $(OBJS)
 
-$(OBJDIR)/%.o:	./%.cpp
-				mkdir $(OBJDIR) 2> /dev/null || true
+$(OBJDIR)/%.o:	./%.cpp | $(OBJDIR)
 				$(CC) $(FLAGS) -I$(INCDIR) -o $@ -c $<
+$(OBJDIR):
+				@mkdir -p $(OBJDIR)
 clean:
 				@rm -rf $(OBJDIR)
 

@@ -17,8 +17,6 @@ Account::Account()
 
 Account::Account(int initial_deposit)
 {
-    Account();
-
     _accountIndex = _nbAccounts;
     _amount = initial_deposit;
     _totalAmount += initial_deposit;
@@ -44,6 +42,7 @@ Account::~Account()
 
 void Account::_displayTimestamp(void)
 {
+    //std::cout << "[19920104_091532] ";
     time_t t_stamp;
     char buff[16];
 

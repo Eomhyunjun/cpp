@@ -4,7 +4,8 @@ std::string Contact::keys[ELEMENT_NUM] = {
     "First name",
     "Last name",
     "Nick name",
-    "Secret"
+    "Phone number",
+    "Secret",
 };
 
 void Contact::Set(void)
@@ -14,8 +15,18 @@ void Contact::Set(void)
         std::string buffer;
 
         std::cout << keys[i] << ": ";
-        std::getline(std::cin, buffer);
-        vals[i].assign(buffer);
+        if (!std::getline(std::cin, buffer))
+        {
+            std::cout << "\n시스템 종료" << std::endl;
+            exit(0);
+        }
+        if (buffer.size() == 0)
+        {
+            i--;
+            std::cout << "값을 입력하셔야만 합니다." << std::endl;
+        }
+        else
+            vals[i].assign(buffer);
     }
 }
 

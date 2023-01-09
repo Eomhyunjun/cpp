@@ -7,7 +7,7 @@ PhoneBook::PhoneBook(void)
     fullIndex = 0;
 };
 
-int  isNum(std::string str)
+int isNum(std::string str)
 {
     if (atoi(str.c_str()) == 0)
     {
@@ -18,14 +18,19 @@ int  isNum(std::string str)
     return (0);
 }
 
-void PhoneBook::Add(void){
+void PhoneBook::Add(void)
+{
     if (index == MAX_CONTACT_NUM)
     {
         std::string chk;
         std::cout << "연락처가 가득 찼습니다. 저장하시면 오래된 연락처가 지워집니다. 계속하시겠습니까? (y/n): ";
         while (1)
         {
-            std::getline(std::cin, chk);
+            if (!std::getline(std::cin, chk))
+            {
+                std::cout << "\n시스템 종료" << std::endl;
+                exit(0);
+            }
             std::cout << std::endl;
             if (chk == "y")
             {
@@ -34,10 +39,10 @@ void PhoneBook::Add(void){
                 _contact[fullIndex].Set();
                 fullIndex++;
                 std::cout << "덮어쓰기를 완료했습니다" << std::endl;
-                break ;
+                break;
             }
             else if (chk == "n")
-                break ;
+                break;
             else
                 std::cout << "y 또는 n만 입력 가능합니다. 다시 입력해주세요: ";
         }
@@ -66,7 +71,11 @@ void PhoneBook::Search(void)
             int numIndex = 0;
 
             std::cout << "자세히 보고 싶은 index를 입력하세요 : ";
-            std::getline(std::cin, stringIndex);
+            if (!std::getline(std::cin, stringIndex))
+            {
+                std::cout << "\n시스템 종료" << std::endl;
+                exit(0);
+            }
             std::stringstream ssInt(stringIndex);
             ssInt >> numIndex;
             if (isNum(stringIndex))
@@ -74,7 +83,7 @@ void PhoneBook::Search(void)
             else if (numIndex < index)
             {
                 _contact[numIndex].printSeletedContact();
-                break ;
+                break;
             }
             else
                 std::cout << "해당 index 정보가 없습니다." << std::endl;

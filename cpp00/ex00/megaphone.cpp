@@ -15,6 +15,7 @@ int main(int argc, char const** argv)
                 contents[j] = std::toupper(contents[j]);
             std::cout << contents;
         }
+        std::cout << std::endl;
     }
 	return (0);
 }
